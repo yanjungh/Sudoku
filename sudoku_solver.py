@@ -5,7 +5,7 @@ from argparse import ArgumentParser
 from collections import namedtuple, Counter
 
 DIMENSION = 9
-NUMBERS = set(list(range(1, DIMENSION + 1)))
+NUMBERS = set(range(1, DIMENSION + 1))
 
 Cell = namedtuple("cell", ['r', 'c'])
 
