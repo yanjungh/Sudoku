@@ -21,6 +21,10 @@ def main():
             print('ERROR: this is not a valid Sudoku puzzle.')
             sys.exit(1)
 
+        print(f'Original puzzle:')
+        board.print_board()
+
+        print(f'\nSolved puzzle:')
         backtrack(0, board)
 
 
@@ -223,7 +227,7 @@ def test(board):
 
 def load(sudoku_str):
     matrix = [[0] * DIMENSION for _ in range(DIMENSION)]
-    print(f'str: {sudoku_str}')
+    # print(f'str: {sudoku_str}')
     for i, char in enumerate(sudoku_str):
         row, col = divmod(i, DIMENSION)
         matrix[row][col] = int(char)
@@ -232,7 +236,9 @@ def load(sudoku_str):
 
 
 def init_param():
-    parser = ArgumentParser(description='Sudoku solver using backtrack algorithm')
+    sample_usage = f'Sample usage: {sys.argv[0]} -f hard'
+
+    parser = ArgumentParser(description='Sudoku solver using backtrack algorithm', epilog=sample_usage)
 
     parser.add_argument('-s', '--string', metavar='str', type=str,
                         help='a string representing a Sudoku puzzle.')
@@ -241,7 +247,7 @@ def init_param():
                         help='a file representing a Sudoku puzzle.')
 
     parser.add_argument('-t', '--test', default=False, action='store_true',
-                        help='runs self test on various functions, instead of solving the puzzle.')
+                        help='runs self test on various functions, in addition to solving the puzzle.')
 
     args = parser.parse_args()
 
