@@ -3,7 +3,7 @@
 This is Python program that solves Sudoku puzzles using backtrack algorithm.  
 
 The implementation of algorithm is mainly based on the book **"The Algorithm Design Manual"** (Second Edition) by
-Steven S. Skienna, but with following optimizations:
+Steven S. Skiena, but with following optimizations:
    1. The solver keeps a list of all open cells, each with its own set of possible numbers.
    1. Each time the solver takes the next cell having fewest possible numbers.
    1. When the solver fills a cell, it takes this cell out of the open cells list.  In addition, the solver updates
