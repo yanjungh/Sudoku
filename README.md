@@ -2,10 +2,17 @@
 
 This is Python program that solves Sudoku puzzles using backtrack algorithm.  
 
-The implementation of algorithm is based on the book **"The Algorithm Design Manual"** (Second Edition) by 
-Steven S. Skienna.  My program takes 0.8 second to solve the hard problem in page 239 of the book.
+The implementation of algorithm is mainly based on the book **"The Algorithm Design Manual"** (Second Edition) by
+Steven S. Skienna, but with following optimizations:
+   1. The solver keeps a list of all open cells, each with its own set of possible numbers.
+   1. Each time the solver takes the next cell having fewest possible numbers.
+   1. When the solver fills a cell, it takes this cell out of the open cells list.  In addition, the solver updates
+        possible values for open cells in the same affected row, column or sector.
+   1. Similarly, when the solver frees a cell, it adds the cell back and updates possible values for open cells just
+        like the above.
 
-The hard problem is included in the sample games.
+The solver takes 0.8 second to solve the hard problem in page 239 of the book.  The hard problem is also included in
+the sample games.
 
 
 # Requirements
